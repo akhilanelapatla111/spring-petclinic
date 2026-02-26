@@ -6,7 +6,7 @@ pipeline {
     }
     
     environment {
-        IMAGE_NAME = "yourdockerhubusername/spring-petclinic"
+        IMAGE_NAME = "akhilanelapatla111/spring-petclinic"
         DOCKER_CREDS = credentials('dockerhub-creds')
         SONAR_TOKEN = credentials('sonar-token')
     }
