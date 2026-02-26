@@ -19,10 +19,15 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                checkout scm
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/main']],
+                    userRemoteConfigs: [[
+                        url: 'https://github.com/akhilanelapatla111/spring-petclinic.git'
+                    ]]
+                ])
             }
         }
-
         stage('Build') {
             steps {
                 sh 'mvn clean compile'
