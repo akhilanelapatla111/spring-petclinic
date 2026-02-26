@@ -1,6 +1,10 @@
 pipeline {
     agent any
-
+    
+    tools {
+        maven 'Maven-3.9'
+    }
+    
     environment {
         IMAGE_NAME = "yourdockerhubusername/spring-petclinic"
         DOCKER_CREDS = credentials('dockerhub-creds')
