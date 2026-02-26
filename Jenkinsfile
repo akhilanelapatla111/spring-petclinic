@@ -46,12 +46,9 @@ pipeline {
 
         stage('Static Scan - SonarQube') {
             steps {
-                sh """
-                mvn sonar:sonar \
-                -Dsonar.projectKey=petclinic \
-                -Dsonar.host.url=http://host.docker.internal:9000 \
-                -Dsonar.login=${SONAR_TOKEN}
-                """
+                withSonarQubeEnv('SonarQube') {
+                    sh './mvnw clean verify sonar:sonar'
+                }
             }
         }
 
