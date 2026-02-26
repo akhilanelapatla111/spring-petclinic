@@ -33,12 +33,12 @@ pipeline {
             parallel {
                 stage('Controller Tests') {
                     steps {
-                        sh 'mvn test -Dtest=*ControllerTest'
+                        sh 'mvn test -Dtest=*ControllerTests'
                     }
                 }
                 stage('Service Tests') {
                     steps {
-                        sh 'mvn test -Dtest=*ServiceTest'
+                        sh 'mvn test -Dtest=*ServiceTests'
                     }
                 }
             }
